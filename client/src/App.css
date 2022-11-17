@@ -1,0 +1,110 @@
+.homeMain {
+  width: 100%;
+  background-color: #191919;
+  padding-bottom: 5%;
+}
+
+.homeNav {
+  background-color: #22282c;
+  height: 100px;
+}
+
+.homeLogo {
+  margin-left: 1%;
+  margin-top: 1%;
+}
+
+.homeTable {
+  max-width: 1900px;
+  background: linear-gradient(120.39deg, rgba(241, 241, 240, 0.15) 14.67%, rgba(241, 241, 240, 0.05) 63.34%);
+  background-color: #191919;
+  box-sizing: border-box;
+  margin: 0 auto;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  padding: 3%;
+  /* position: absolute; */
+  /* width: 1565px;
+  height: 717px;
+  left: 81px;
+  top: 114px; */
+  backdrop-filter: blur(25px);
+  /* Note: backdrop-filter has minimal browser support */
+  border-radius: 16px;
+  border: 1px solid #F1F1F0;
+}
+
+.firstCol,
+.secondCol,
+.thirdCol {
+  max-width: 500px;
+}
+
+.mernchBut {
+  background-color: #D83D1D;
+  box-shadow: 0px 4px 15px rgba(216, 61, 29, 0.5);
+  border-radius: 8px;
+  width: 160px;
+  height: 40px;
+}
+
+.googleBut {
+  background-color: #315BC8;
+  box-shadow: 0px 4px 15px rgba(49, 91, 200, 0.5);
+  border-radius: 8px;
+  width: 160px;
+  height: 40px;
+}
+
+.camBut {
+  background-color: #F0CB47;
+  box-shadow: 0px 4px 15px rgba(240, 203, 71, 0.5);
+  border-radius: 8px;
+  width: 160px;
+  height: 40px;
+}
+
+.mernMain {
+  width: 100%;
+  background-color: #191919;
+  padding-bottom: 5%;
+}
+
+.mernNav {
+  background-color: #22282c;
+  height: 100px;
+}
+
+.mernTable {
+  width: 1565px;
+  background: linear-gradient(120.39deg, rgba(241, 241, 240, 0.15) 14.67%, rgba(241, 241, 240, 0.05) 63.34%);
+  background-color: #191919;
+  box-sizing: border-box;
+  margin: 0 auto;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  padding: 4%;
+
+  /* position: absolute; */
+  /* width: 1565px;
+  height: 717px;
+  left: 81px;
+  top: 114px; */
+
+  backdrop-filter: blur(25px);
+  /* Note: backdrop-filter has minimal browser support */
+
+  border-radius: 16px;
+  border: 1px solid #F1F1F0;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transform-style: preserve-3d;
+  transition: .4s ease-in-out;
+}
+.cardImage.picked {
+  transform: rotateY(180deg);
+}
