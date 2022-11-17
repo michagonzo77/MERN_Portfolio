@@ -14,7 +14,8 @@ const CardSchema = new mongoose.Schema(
         },
         image: {
             type: String,
-            default: "card"
+            required: [true, '{PATH} is required.'],
+            minlength: [3, '{PATH} must be at least {MINLENGTH} characters.']
         },
         audio: {
             type: String,

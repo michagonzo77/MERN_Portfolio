@@ -12,6 +12,7 @@ export const EditCard = (props) => {
         song: '',
         name: '',
         audio: '',
+        image: '',
         value: 0
     })
     const [errors, setErrors] = useState(null)
@@ -20,6 +21,7 @@ export const EditCard = (props) => {
         song: '',
         name: '',
         audio: '',
+        image: '',
         value: 0
     })
 
@@ -38,15 +40,15 @@ export const EditCard = (props) => {
         e.preventDefault();
         const error = validateInput();
         // if (error === null) {
-            updateCard(id, formData)
-                .then((data) => {
-                    console.log('New Card Data:', data)
-                    navigate(`/mernchingband/${data._id}`)
-                })
-                .catch((error) => {
-                    console.log(error.response)
-                    setErrors(error.response?.data?.errors)
-                })
+        updateCard(id, formData)
+            .then((data) => {
+                console.log('New Card Data:', data)
+                navigate(`/mernchingband/${data._id}`)
+            })
+            .catch((error) => {
+                console.log(error.response)
+                setErrors(error.response?.data?.errors)
+            })
         // }
     }
 
@@ -74,11 +76,11 @@ export const EditCard = (props) => {
         return null
     }
 
-    const {name} = card
+    const { name } = card
 
     return (
         <div className="mb-3 w-75 mx-auto">
-            <Link to ={"/mernchingband/all"}>View All Cards</Link>
+            <Link to={"/mernchingband/all"}>View All Cards</Link>
             <h2>Make New Cards for Game</h2>
             <div className="p-4 rounded mx-auto mt-5 shadow">
                 {/* {JSON.stringify(formData.over1mil)} */}
@@ -136,7 +138,23 @@ export const EditCard = (props) => {
                         </div>
                         <p className="text-danger">{formDataErrors.audioError}</p>
                         <div className="form-group">
-                            <label className="h6">Audio</label>
+                            <label className="h6">Image</label>
+                            <input
+                                onChange={handleFormChanges}
+                                type="text"
+                                name="image"
+                                value={formData.image}
+                                className="form-control"
+                            />
+                            {
+                                errors?.image && (
+                                    <span className="text-danger">{errors.image?.message}</span>
+                                )
+                            }
+                        </div>
+                        <p className="text-danger">{formDataErrors.imageError}</p>
+                        <div className="form-group">
+                            <label className="h6">Value</label>
                             <input
                                 onChange={handleFormChanges}
                                 type="number"

@@ -4,7 +4,8 @@ import useSound from 'use-sound';
 import mernching from "./mernchingband.png";
 import cardz from "./cards.png";
 import spriteSound from "../static/spriteSound.mp3"
-import guitarGuy from "./mernchingcard.png"
+// import guitarGuy from "./mernchingcard.png"
+import guitarGuy from "./mernchingcardsmall.png"
 
 export const MernchingBand = (props) => {
     const [cards, setCards] = useState([])
@@ -22,17 +23,55 @@ export const MernchingBand = (props) => {
         },
         interrupt: true
     })
-    const [cardImage, setCardImage] = useState({
-        front: {guitarGuy},
-        back: {guitarGuy}
+
+    const [fullCardInfo, setFullCardInfo] = useState({
+        0: {
+            graphic: guitarGuy,
+            clicked: true,
+        },
+        1: {
+            graphic: guitarGuy,
+            clicked: true,
+        },
+        2: {
+            graphic: guitarGuy,
+            clicked: true,
+        },
+        3: {
+            graphic: guitarGuy,
+            clicked: true,
+        },
+        4: {
+            graphic: guitarGuy,
+            clicked: true,
+        },
+        5: {
+            graphic: guitarGuy,
+            clicked: true,
+        },
+        6: {
+            graphic: guitarGuy,
+            clicked: true,
+        },
+        7: {
+            graphic: guitarGuy,
+            clicked: true,
+        },
+        8: {
+            graphic: guitarGuy,
+            clicked: true,
+        },
+        9: {
+            graphic: guitarGuy,
+            clicked: true,
+        }
     })
-    const [clicked, setClicked] = useState(true)
 
     useEffect(() => {
         getAllCards()
             .then((data) => {
+                console.table(data)
                 setCards(data);
-                setCardImage(guitarGuy)
             })
             .catch((error) => {
                 console.log(error)
@@ -48,22 +87,50 @@ export const MernchingBand = (props) => {
         }
     }
 
-    const ifClicked = () => {
-        console.log(clicked)
-        clicked && setCardImage(cardz)
-        !clicked && setCardImage(guitarGuy)
+    const ifClicked = (idToFlip) => {
+        if (fullCardInfo[idToFlip].clicked === true) {
+            setFullCardInfo({
+                ...fullCardInfo,
+                [idToFlip]: {
+                    clicked: false,
+                    graphic: cardz
+                }
+            })
+        }
+        if (fullCardInfo[idToFlip].clicked === false) {
+            setFullCardInfo({
+                ...fullCardInfo,
+                [idToFlip]: {
+                    clicked: true,
+                    graphic: guitarGuy
+                }
+            })
+        }
     }
 
-    const handleClick = (audio) => {
+    const handleClick = (audio, idToFlip) => {
         play({ id: audio })
-        if (clicked === false){
-            setClicked(true)
+        console.log(fullCardInfo[idToFlip].clicked)
+        if (fullCardInfo[idToFlip].clicked === false) {
+            setFullCardInfo({
+                ...fullCardInfo,
+                [idToFlip]: {
+                    ...idToFlip,
+                    clicked: true
+                }
+            })
         }
-        if (clicked === true){
-            setClicked(false)
+        if (fullCardInfo[idToFlip].clicked === true) {
+            setFullCardInfo({
+                ...fullCardInfo,
+                [idToFlip]: {
+                    ...idToFlip,
+                    clicked: false
+                }
+            })
         }
-        console.log(clicked)
-        ifClicked()
+        console.table(fullCardInfo)
+        ifClicked(idToFlip)
     }
 
     // const evaluate = () => {
@@ -93,11 +160,12 @@ export const MernchingBand = (props) => {
                             <div key={i}>
                                 <img
                                     className="cardImage"
-                                    src={cardImage}
+                                    src={fullCardInfo[i].graphic}
+                                    idToFlip={i}
                                     // onClick={() => play({ id: audio })}
-                                    onClick = {() => {handleClick(audio)}}
+                                    onClick={() => { handleClick(audio, i) }}
                                     name={name}
-                                    />
+                                />
                             </div>
                         )
                     })}

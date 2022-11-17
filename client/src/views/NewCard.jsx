@@ -10,6 +10,7 @@ export const NewCard = (props) => {
         song: '',
         name: '',
         audio: '',
+        image: '',
         value: 0
     })
     const [errors, setErrors] = useState(null)
@@ -18,6 +19,7 @@ export const NewCard = (props) => {
         song: '',
         name: '',
         audio: '',
+        image: '',
         value: 0
     })
 
@@ -154,7 +156,23 @@ export const NewCard = (props) => {
                         </div>
                         <p className="text-danger">{formDataErrors.audioError}</p>
                         <div className="form-group">
-                            <label className="h6">Audio</label>
+                            <label className="h6">Image</label>
+                            <input
+                                onChange={handleFormChanges}
+                                type="text"
+                                name="image"
+                                value={formData.image}
+                                className="form-control"
+                            />
+                            {
+                                errors?.image && (
+                                    <span className="text-danger">{errors.image?.message}</span>
+                                )
+                            }
+                        </div>
+                        <p className="text-danger">{formDataErrors.imageError}</p>
+                        <div className="form-group">
+                            <label className="h6">Value</label>
                             <input
                                 onChange={handleFormChanges}
                                 type="number"
