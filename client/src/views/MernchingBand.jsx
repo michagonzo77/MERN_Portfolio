@@ -13,6 +13,8 @@ export const MernchingBand = (props) => {
     const [moves, setMoves] = useState(0);
     const [showModal, setShowModal] = useState(false);
     const timeout = useRef(null);
+    const [showButton, setShowButton] = useState(true)
+    const [openCards, setOpenCards] = useState({})
     const [play, { stop }] = useSound(spriteSound, {
         sprite: {
             bass: [0, 2100],
@@ -24,53 +26,9 @@ export const MernchingBand = (props) => {
         interrupt: true
     })
 
-    const [fullCardInfo, setFullCardInfo] = useState({
-        0: {
-            graphic: guitarGuy,
-            clicked: true,
-        },
-        1: {
-            graphic: guitarGuy,
-            clicked: true,
-        },
-        2: {
-            graphic: guitarGuy,
-            clicked: true,
-        },
-        3: {
-            graphic: guitarGuy,
-            clicked: true,
-        },
-        4: {
-            graphic: guitarGuy,
-            clicked: true,
-        },
-        5: {
-            graphic: guitarGuy,
-            clicked: true,
-        },
-        6: {
-            graphic: guitarGuy,
-            clicked: true,
-        },
-        7: {
-            graphic: guitarGuy,
-            clicked: true,
-        },
-        8: {
-            graphic: guitarGuy,
-            clicked: true,
-        },
-        9: {
-            graphic: guitarGuy,
-            clicked: true,
-        }
-    })
-
     useEffect(() => {
         getAllCards()
             .then((data) => {
-                console.table(data)
                 setCards(data);
             })
             .catch((error) => {
@@ -78,74 +36,144 @@ export const MernchingBand = (props) => {
             })
     }, [])
 
-    const shuffleCards = (cards) => {
-        for (var i = cards.length - 1; i > 0; i--) {
-            var j = Math.floor(Math.random() * (i + 1));
-            var temp = cards[i];
-            cards[i] = cards[j];
-            cards[j] = temp;
+    // Runs after the handleClick, and manages changing the click status and the graphic on the card.
+    const ifClicked = (idToFlip, index) => {
+        if (cards[idToFlip].clicked === true) {
+            const newState = cards.map(card => {
+                if (card._id === index) {
+                    return { ...card, image: cardz, clicked: false };
+                }
+                return card;
+            });
+            setCards(newState)
         }
+        if (cards[idToFlip].clicked === false) {
+            const newState = cards.map(card => {
+                if (card._id === index) {
+                    return { ...card, image: cardz, clicked: true };
+                }
+                return card;
+            });
+            setCards(newState)
+            // timeout.current = setTimeout(() => {
+            //     setCards(newState);
+            // }, 500);
+        }
+        console.table(cards)
+        //     setCards({
+        //         ...cards,
+        //         [idToFlip]: {
+        //             clicked: false,
+        //             graphic: cardz
+        //         }
+        //     })
+        // }
+        // if (cards[idToFlip].clicked === false) {
+        //     setCards({
+        //         ...cards,
+        //         [idToFlip]: {
+        //             clicked: true,
+        //             graphic: guitarGuy
+        //         }
+        //     })
+        // }
     }
 
-    const ifClicked = (idToFlip) => {
-        if (fullCardInfo[idToFlip].clicked === true) {
-            setFullCardInfo({
-                ...fullCardInfo,
-                [idToFlip]: {
-                    clicked: false,
-                    graphic: cardz
-                }
-            })
-        }
-        if (fullCardInfo[idToFlip].clicked === false) {
-            setFullCardInfo({
-                ...fullCardInfo,
-                [idToFlip]: {
-                    clicked: true,
-                    graphic: guitarGuy
-                }
-            })
-        }
-    }
-
-    const handleClick = (audio, idToFlip) => {
+    // Plays the audio and updates state to match new clicked status.
+    const handleClick = (audio, idToFlip, index, value) => {
         play({ id: audio })
-        console.log(fullCardInfo[idToFlip].clicked)
-        if (fullCardInfo[idToFlip].clicked === false) {
-            setFullCardInfo({
-                ...fullCardInfo,
-                [idToFlip]: {
-                    ...idToFlip,
-                    clicked: true
+        if (cards[idToFlip].clicked === false) {
+            const newState = cards.map(card => {
+                if (card._id === index) {
+                    return { ...card, clicked: true };
                 }
-            })
+                return card;
+            });
+            setCards(newState)
         }
-        if (fullCardInfo[idToFlip].clicked === true) {
-            setFullCardInfo({
-                ...fullCardInfo,
-                [idToFlip]: {
-                    ...idToFlip,
-                    clicked: false
+        if (cards[idToFlip].clicked === true) {
+            const newState = cards.map(card => {
+                if (card._id === index) {
+                    return { ...card, clicked: false };
                 }
-            })
+                return card;
+            });
+            setCards(newState)
         }
-        console.table(fullCardInfo)
-        ifClicked(idToFlip)
+        ifClicked(idToFlip, index)
+        if ("first" in openCards){
+            setOpenCards({...openCards, second: value})
+            evaluate()
+        } else setOpenCards({...openCards, first: value})
+        // if (cards[idToFlip].clicked === false) {
+        //     setCards([
+        //         [...cards].map(card => {
+        //             console.log(card)
+        //             if (card._id === index) {
+        //                 return {
+        //                     ...card,
+        //                     clicked: true
+        //                 }
+        //             }
+        //             else return card;
+        //         })
+        //     ])
+        // }
+        // if (cards[idToFlip].clicked === true) {
+        //     setCards([
+        //         [...cards].map(card => {
+        //             console.log(card)
+        //             if (card._id === index) {
+        //                 return {
+        //                     ...card,
+        //                     clicked: false
+        //                 }
+        //             }
+        //             else return card;
+        //         })
+        //     ])
+        // }
+        // if (cards[idToFlip].clicked === false) {
+        //     setCards([
+        //         ...cards,
+        //         [idToFlip]: {
+        //             ...cards[idToFlip],
+        //             clicked: true
+        //         }
+        //     ])
+        // }
+        // if (cards[idToFlip].clicked === true) {
+        //     setCards([
+        //         ...cards,
+        //         [idToFlip]: {
+        //             ...cards[idToFlip],
+        //             clicked: false
+        //         }
+        //     ])
+        // }
     }
 
-    // const evaluate = () => {
-    //     const [first, second] = openCards;
-    //     if (cards[first].type === cards[second].type) {
-    //         setClearedCards((prev) => ({ ...prev, [cards[first].type]: true }));
-    //         setOpenCards([]);
-    //         return;
-    //     }
-    //     // Flip cards after a 500ms duration
-    //     timeout.current = setTimeout(() => {
-    //         setOpenCards([]);
-    //     }, 500);
-    // };
+    const evaluate = () => {
+        const {first, second} = openCards;
+        console.log(first)
+        if (first === second) {
+            console.log("It's a Match!")
+            setClearedCards((prev) => ({ ...prev, [cards[first].type]: true }));
+            setOpenCards({});
+            return;
+        } else {
+            console.log("Not a Match!")
+            // Flip cards after a 500ms duration
+            timeout.current = setTimeout(() => {
+                setOpenCards([]);
+            }, 500);
+        }
+    };
 
+    const startGame = (cards) => {
+        setCards(prevValue => [...cards].sort(() => Math.random() - 0.5))
+        setShowButton(false)
+    }
 
     return (
         <div className="mernMain">
@@ -153,18 +181,26 @@ export const MernchingBand = (props) => {
                 <img src={mernching} />
             </nav>
             <div className="mernTable">
+                {showButton &&
+                <button
+                onClick={() => {startGame(cards)}}
+                className="startGameButton">Start Game
+                </button>
+                }
                 <div className="d-flex flex-wrap gap-5 justify-content-center">
-                    {cards.sort(() => Math.random() - 0.5).map((card, i) => {
+                    {cards.map((card, i) => {
+                    // {cards.sort(() => Math.random() - 0.5).map((card, i) => {
                         const { _id, song, name, image, audio, value } = card;
                         return (
                             <div key={i}>
                                 <img
                                     className="cardImage"
-                                    src={fullCardInfo[i].graphic}
-                                    idToFlip={i}
+                                    src={`${image}`}
+                                    idtoflip={i}
                                     // onClick={() => play({ id: audio })}
-                                    onClick={() => { handleClick(audio, i) }}
+                                    onClick={() => { handleClick(audio, i, _id, value) }}
                                     name={name}
+                                    value={value}
                                 />
                             </div>
                         )

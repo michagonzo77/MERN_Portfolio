@@ -48,12 +48,14 @@ export const AllCards = (props) => {
                             <th>Song</th>
                             <th>Name</th>
                             <th>Audio</th>
+                            <th>Image</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         {cards.sort(() => Math.random() - 0.5).map((card, i) => {
                             const { _id, song, name, image, audio, value } = card;
+                            console.table(card)
                             return (
                                 <tr key={i} className="shadow mb-4 rounded border p-4">
                                     <td>
@@ -82,6 +84,9 @@ export const AllCards = (props) => {
                                                 audio === "vocal" && <source src={vocal} type="audio/mp3"></source>
                                             }
                                         </audio>
+                                    </td>
+                                    <td>
+                                        {image}
                                     </td>
                                     <td>
                                         <Link

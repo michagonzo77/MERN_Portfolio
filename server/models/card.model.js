@@ -26,6 +26,10 @@ const CardSchema = new mongoose.Schema(
             type: Number,
             required: [true, '{PATH} is required.'],
             minlength: [1, '{PATH} must be at least {MINLENGTH} characters.']
+        },
+        clicked: {
+            type: Boolean,
+            default: false
         }
     },
     { timestamps: true }
