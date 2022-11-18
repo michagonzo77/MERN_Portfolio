@@ -2,6 +2,7 @@
   width: 100%;
   background-color: #191919;
   padding-bottom: 5%;
+  min-height: 1075px;
 }
 
 .homeNav {
@@ -81,6 +82,7 @@
 
 .mernMain {
   width: 100%;
+  min-height: 1075px;
   background-color: #191919;
   padding-bottom: 5%;
 }
