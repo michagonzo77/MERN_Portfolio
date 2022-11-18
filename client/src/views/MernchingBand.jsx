@@ -9,7 +9,6 @@ import fullSong from "../static/full_song.mp3"
 // import guitarGuy from "./mernchingcard.png"
 import guitarGuy from "./mernchingcardsmall.png"
 import lightOff from "./mernchinglightoff.png"
-import bio from "./bio.png"
 
 const fullCancion = new Audio(fullSong)
 export const MernchingBand = (props) => {
