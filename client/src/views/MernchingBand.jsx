@@ -46,6 +46,8 @@ export const MernchingBand = (props) => {
         9: 'cardImage'
     })
 
+    const [clickDisabled, setClickDisabled] = useState(false)
+
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -112,8 +114,12 @@ export const MernchingBand = (props) => {
         ifClicked(idToFlip, index)
         console.table(openCards)
         if ("firstValue" in openCards) {
+            setClickDisabled(true)
             if (openCards.firstValue === value) {
                 console.log("It's a Match!")
+                timeout.current = setTimeout(() => {
+                    setClickDisabled(false)
+                }, 1000);
                 setOpenCards({});
                 setClearedCards([
                     ...clearedCards,
@@ -128,7 +134,6 @@ export const MernchingBand = (props) => {
                 }
                 return;
             } else {
-
                 timeout.current = setTimeout(() => {
                     const newState = cards.map(card => {
                         if (card._id === openCards.indexOne || card._id === index) {
@@ -138,8 +143,8 @@ export const MernchingBand = (props) => {
                     });
                     setOpenCards({});
                     setCards(newState)
+                    setClickDisabled(false)
                     console.log("Not a Match!")
-
                 }, 1500);
                 // timeout.current = setTimeout(() => {
                 //     evaluate()
@@ -206,9 +211,11 @@ export const MernchingBand = (props) => {
                                     src={`${image}`}
                                     idtoflip={i}
                                     // onClick={() => play({ id: audio })}
-                                    onClick={() => { handleClick(audio, i, _id, value) }}
+                                    // onClick={() => { handleClick(audio, i, _id, value) }}
+                                    onClick={() => clickDisabled ? () => {} : handleClick(audio, i, _id, value) }
                                     name={name}
                                     value={value}
+                                    disabled={true}
                                 />
                             </div>
                         )
