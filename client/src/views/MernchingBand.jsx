@@ -128,15 +128,19 @@ export const MernchingBand = (props) => {
                 }
                 return;
             } else {
-                const newState = cards.map(card => {
-                    if (card._id === openCards.indexOne || card._id === index) {
-                        return { ...card, image: guitarGuy, clicked: false };
-                    }
-                    return card;
-                });
-                setOpenCards({});
-                setCards(newState)
-                console.log("Not a Match!")
+
+                timeout.current = setTimeout(() => {
+                    const newState = cards.map(card => {
+                        if (card._id === openCards.indexOne || card._id === index) {
+                            return { ...card, image: guitarGuy, clicked: false };
+                        }
+                        return card;
+                    });
+                    setOpenCards({});
+                    setCards(newState)
+                    console.log("Not a Match!")
+
+                }, 1500);
                 // timeout.current = setTimeout(() => {
                 //     evaluate()
                 // }, 1500);
