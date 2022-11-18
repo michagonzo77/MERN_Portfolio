@@ -14,8 +14,12 @@
   margin-top: 1%;
 }
 
+.gameLogo {
+  max-width: 80%;
+}
+
 .homeTable {
-  max-width: 1900px;
+  max-width: 1800px;
   background: linear-gradient(120.39deg, rgba(241, 241, 240, 0.15) 14.67%, rgba(241, 241, 240, 0.05) 63.34%);
   background-color: #191919;
   box-sizing: border-box;
@@ -54,6 +58,7 @@
   border-radius: 8px;
   width: 160px;
   height: 40px;
+  padding: 10px 60px;
 }
 
 .googleBut {
@@ -62,6 +67,7 @@
   border-radius: 8px;
   width: 160px;
   height: 40px;
+  padding: 10px 35px;
 }
 
 .camBut {
@@ -70,6 +76,7 @@
   border-radius: 8px;
   width: 160px;
   height: 40px;
+  padding: 10px 35px;
 }
 
 .mernMain {
@@ -153,6 +160,16 @@
   font-size: 30px;
 }
 
+.startBg {
+  width: 1400px;
+  height: 500px;
+  position: fixed;
+  background: linear-gradient(120.39deg, rgba(241, 241, 240, 0.15) 14.67%, rgba(241, 241, 240, 0.05) 63.34%);
+  background-color: #191919;
+  z-index: 9998;
+  opacity: 1%;
+}
+
 .showWinModal {
   width: 400px;
   height: 400px;
@@ -173,4 +190,14 @@
 
 .playAgain {
   margin-left: 30%;
+}
+
+.homeBut {
+  border-radius: 8px;
+  width: 160px;
+  height: 60px;
+  padding: 10px 35px;
+  font-size: 30px;
+  margin-right: 10px;
+  text-decoration: none;
 }

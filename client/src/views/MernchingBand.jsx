@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import { getAllCards } from "../services/internalApiService";
 import useSound from 'use-sound';
 import mernching from "./mernchingband.png";
@@ -15,6 +15,7 @@ export const MernchingBand = (props) => {
     const [cards, setCards] = useState([])
     const [clearedCards, setClearedCards] = useState([]);
     const [showButton, setShowButton] = useState(true)
+    const [showBg, setShowBg] = useState(true)
     const [showWin, setShowWin] = useState(false)
     const [openCards, setOpenCards] = useState({})
     const timeout = useRef(null);
@@ -129,6 +130,7 @@ export const MernchingBand = (props) => {
                 if (clearedCards.length === 8) {
                     fullCancion.play()
                     setShowWin(true)
+                    setShowBg(true)
                     setClearedCards([])
                     console.log("You Win!")
                 }
@@ -163,6 +165,7 @@ export const MernchingBand = (props) => {
         setLogo(mernching)
         setCards(prevValue => [...cards].sort(() => Math.random() - 0.5))
         setShowButton(false)
+        setShowBg(false)
     }
 
     const startGameAgain = (cards) => {
@@ -173,22 +176,26 @@ export const MernchingBand = (props) => {
         });
         setCards(newState)
         setShowWin(false)
+        setShowBg(false)
     }
 
     return (
         <div className="mernMain">
-            {/* <nav className="logoCss">
-                <img src={lightOff} />
-            </nav> */}
-            <nav className={logoCss}>
-                <img src={logo} />
-            </nav>
+            <div className="navvy d-flex justify-content-between">
+                <nav className={logoCss}>
+                    <img src={logo} />
+                </nav>
+                <Link className="text-light homeBut" to={"/"}>HOME</Link>
+            </div>
             <div className="mernTable">
                 {showButton &&
                     <button
                         onClick={() => { startGame(cards) }}
                         className="startGameButton">Start Game
                     </button>
+                }
+                {showBg &&
+                    <div className="startBg"></div>
                 }
                 {showWin &&
                     <div className="showWinModal">
@@ -212,10 +219,9 @@ export const MernchingBand = (props) => {
                                     idtoflip={i}
                                     // onClick={() => play({ id: audio })}
                                     // onClick={() => { handleClick(audio, i, _id, value) }}
-                                    onClick={() => clickDisabled ? () => {} : handleClick(audio, i, _id, value) }
+                                    onClick={() => clickDisabled ? () => { } : handleClick(audio, i, _id, value)}
                                     name={name}
                                     value={value}
-                                    disabled={true}
                                 />
                             </div>
                         )
