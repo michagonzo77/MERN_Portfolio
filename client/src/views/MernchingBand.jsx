@@ -181,7 +181,7 @@ export const MernchingBand = (props) => {
 
     return (
         <div className="mernMain">
-            <div className="navvy d-flex justify-content-between">
+            <div className="navvy d-flex justify-content-end">
                 <nav className={logoCss}>
                     <img src={logo} />
                 </nav>

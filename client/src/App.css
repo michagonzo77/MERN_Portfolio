@@ -85,9 +85,15 @@
   padding-bottom: 5%;
 }
 
-.mernNav {
+.navvy{
   background-color: #22282c;
-  height: 100px;
+  height: 80px;
+}
+
+.mernNav {
+  /* background-color: #22282c; */
+  position: fixed;
+  left: 0;
 }
 
 .darker_bg {
@@ -95,9 +101,12 @@
 }
 
 .logoCss {
-  margin-left: 50px;
-  padding-top: 15px;
-  margin-bottom: 83px;
+  position: fixed;
+  left: 49px;
+  top:18px;
+  /* margin-left: 49px;
+  padding-top: 18px;
+  margin-bottom: 20px; */
 }
 
 .mernTable {
