@@ -9,6 +9,7 @@ import fullSong from "../static/full_song.mp3"
 // import guitarGuy from "./mernchingcard.png"
 import guitarGuy from "./mernchingcardsmall.png"
 import lightOff from "./mernchinglightoff.png"
+import bio from "./bio.png"
 
 const fullCancion = new Audio(fullSong)
 export const MernchingBand = (props) => {
@@ -19,6 +20,7 @@ export const MernchingBand = (props) => {
     const [showWin, setShowWin] = useState(false)
     const [openCards, setOpenCards] = useState({})
     const timeout = useRef(null);
+    const [showBio, setShowBio] = useState(true)
     // const [cardCss, setCardCss] = useState('cardImage')
     const [play, { stop }] = useSound(spriteSound, {
         sprite: {

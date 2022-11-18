@@ -16,6 +16,12 @@
   top:18px;
 }
 
+.bio {
+  position: fixed;
+  z-index: 9999;
+  left: 20%;
+}
+
 .gameLogo {
   max-width: 80%;
 }

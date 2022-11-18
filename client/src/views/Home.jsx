@@ -1,16 +1,28 @@
 import { Link } from 'react-router-dom';
+import { useState } from "react";
 import michaelthedev from "./michaelthedev.png"
 import googlecard from "./googlecard.png"
 import mernchingcard from "./mernchingcard.png"
 import camscavenge from "./camscavenge.png"
+import bio from "./bio.png"
 
 export const Home = (props) => {
+    const [showBio, setShowBio] = useState(true)
+    const handleClick = () => {
+        setShowBio(false)
+    }
 
     return (
         <div className="homeMain">
             <nav className="homeNav">
                 <img className="homeLogo" src={michaelthedev} />
             </nav>
+            {showBio &&
+                <div className="bio" onClick={handleClick}>
+                    <img src={bio}></img>
+                </div>
+            }
+            {!showBio &&
             <div className="homeTable d-flex justify-content-between">
                 <div className="firstCol text-center">
                     <h4 className="text-light">MERNCHING BAND</h4>
@@ -34,6 +46,7 @@ export const Home = (props) => {
                     <Link className="text-dark camBut" to={"/"}>COMING SOON</Link>
                 </div>
             </div>
+            }
         </div>
     )
 }
