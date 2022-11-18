@@ -1,12 +1,15 @@
 import { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom"
 import { getAllCards } from "../services/internalApiService";
 import useSound from 'use-sound';
 import mernching from "./mernchingband.png";
 import cardz from "./cards.png";
 import spriteSound from "../static/spriteSound.mp3"
+import fullSong from "../static/full_song.mp3"
 // import guitarGuy from "./mernchingcard.png"
 import guitarGuy from "./mernchingcardsmall.png"
 
+const fullCancion = new Audio(fullSong)
 export const MernchingBand = (props) => {
     const [cards, setCards] = useState([])
     const [clearedCards, setClearedCards] = useState([]);
@@ -25,6 +28,7 @@ export const MernchingBand = (props) => {
         },
         interrupt: true
     })
+
     const [cardCss, setCardCss] = useState({
         0: 'cardImage',
         1: 'cardImage',
@@ -37,6 +41,8 @@ export const MernchingBand = (props) => {
         8: 'cardImage',
         9: 'cardImage'
     })
+
+    const navigate = useNavigate()
 
     useEffect(() => {
         getAllCards()
@@ -111,6 +117,7 @@ export const MernchingBand = (props) => {
                     value
                 ])
                 if (clearedCards.length === 8) {
+                    fullCancion.play()
                     setShowWin(true)
                     setClearedCards([])
                     console.log("You Win!")
@@ -144,6 +151,7 @@ export const MernchingBand = (props) => {
     }
 
     const startGameAgain = (cards) => {
+        fullCancion.pause()
         setCards(prevValue => [...cards].sort(() => Math.random() - 0.5))
         const newState = cards.map(card => {
             return { ...card, image: guitarGuy, clicked: false };
