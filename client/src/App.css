@@ -2,17 +2,18 @@
   width: 100%;
   background-color: #191919;
   padding-bottom: 5%;
-  min-height: 1075px;
+  min-height: 1475px;
 }
 
 .homeNav {
   background-color: #22282c;
-  height: 100px;
+  height: 80px;
 }
 
 .homeLogo {
-  margin-left: 1%;
-  margin-top: 1%;
+  position: fixed;
+  left: 49px;
+  top:18px;
 }
 
 .gameLogo {
@@ -82,7 +83,7 @@
 
 .mernMain {
   width: 100%;
-  min-height: 1075px;
+  min-height: 1475px;
   background-color: #191919;
   padding-bottom: 5%;
 }
