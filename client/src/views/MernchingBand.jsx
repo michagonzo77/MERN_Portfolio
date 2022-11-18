@@ -9,12 +9,12 @@ import guitarGuy from "./mernchingcardsmall.png"
 
 export const MernchingBand = (props) => {
     const [cards, setCards] = useState([])
-    const [clearedCards, setClearedCards] = useState({});
-    const [moves, setMoves] = useState(0);
-    const [showModal, setShowModal] = useState(false);
-    const timeout = useRef(null);
+    const [clearedCards, setClearedCards] = useState([]);
     const [showButton, setShowButton] = useState(true)
+    const [showWin, setShowWin] = useState(false)
     const [openCards, setOpenCards] = useState({})
+    const timeout = useRef(null);
+    // const [cardCss, setCardCss] = useState('cardImage')
     const [play, { stop }] = useSound(spriteSound, {
         sprite: {
             bass: [0, 2100],
@@ -24,6 +24,18 @@ export const MernchingBand = (props) => {
             vocal: [32000, 2100]
         },
         interrupt: true
+    })
+    const [cardCss, setCardCss] = useState({
+        0: 'cardImage',
+        1: 'cardImage',
+        2: 'cardImage',
+        3: 'cardImage',
+        4: 'cardImage',
+        5: 'cardImage',
+        6: 'cardImage',
+        7: 'cardImage',
+        8: 'cardImage',
+        9: 'cardImage'
     })
 
     useEffect(() => {
@@ -38,7 +50,9 @@ export const MernchingBand = (props) => {
 
     // Runs after the handleClick, and manages changing the click status and the graphic on the card.
     const ifClicked = (idToFlip, index) => {
+        // setCardCss({...cardCss, idToFlip: 'cardImage2'})
         if (cards[idToFlip].clicked === true) {
+            // cardCss[idToFlip] = 'cardImage'
             const newState = cards.map(card => {
                 if (card._id === index) {
                     return { ...card, image: cardz, clicked: false };
@@ -48,6 +62,7 @@ export const MernchingBand = (props) => {
             setCards(newState)
         }
         if (cards[idToFlip].clicked === false) {
+            // cardCss[idToFlip] = 'cardImage2'
             const newState = cards.map(card => {
                 if (card._id === index) {
                     return { ...card, image: cardz, clicked: true };
@@ -59,28 +74,12 @@ export const MernchingBand = (props) => {
             //     setCards(newState);
             // }, 500);
         }
-        console.table(cards)
-        //     setCards({
-        //         ...cards,
-        //         [idToFlip]: {
-        //             clicked: false,
-        //             graphic: cardz
-        //         }
-        //     })
-        // }
-        // if (cards[idToFlip].clicked === false) {
-        //     setCards({
-        //         ...cards,
-        //         [idToFlip]: {
-        //             clicked: true,
-        //             graphic: guitarGuy
-        //         }
-        //     })
-        // }
     }
 
     // Plays the audio and updates state to match new clicked status.
     const handleClick = (audio, idToFlip, index, value) => {
+        console.table(clearedCards)
+        cardCss[idToFlip] = 'cardImage2'
         play({ id: audio })
         if (cards[idToFlip].clicked === false) {
             const newState = cards.map(card => {
@@ -101,78 +100,56 @@ export const MernchingBand = (props) => {
             setCards(newState)
         }
         ifClicked(idToFlip, index)
-        if ("first" in openCards){
-            setOpenCards({...openCards, second: value})
-            evaluate()
-        } else setOpenCards({...openCards, first: value})
-        // if (cards[idToFlip].clicked === false) {
-        //     setCards([
-        //         [...cards].map(card => {
-        //             console.log(card)
-        //             if (card._id === index) {
-        //                 return {
-        //                     ...card,
-        //                     clicked: true
-        //                 }
-        //             }
-        //             else return card;
-        //         })
-        //     ])
-        // }
-        // if (cards[idToFlip].clicked === true) {
-        //     setCards([
-        //         [...cards].map(card => {
-        //             console.log(card)
-        //             if (card._id === index) {
-        //                 return {
-        //                     ...card,
-        //                     clicked: false
-        //                 }
-        //             }
-        //             else return card;
-        //         })
-        //     ])
-        // }
-        // if (cards[idToFlip].clicked === false) {
-        //     setCards([
-        //         ...cards,
-        //         [idToFlip]: {
-        //             ...cards[idToFlip],
-        //             clicked: true
-        //         }
-        //     ])
-        // }
-        // if (cards[idToFlip].clicked === true) {
-        //     setCards([
-        //         ...cards,
-        //         [idToFlip]: {
-        //             ...cards[idToFlip],
-        //             clicked: false
-        //         }
-        //     ])
-        // }
+        console.table(openCards)
+        if ("firstValue" in openCards) {
+            if (openCards.firstValue === value) {
+                console.log("It's a Match!")
+                setOpenCards({});
+                setClearedCards([
+                    ...clearedCards,
+                    openCards.firstValue,
+                    value
+                ])
+                if (clearedCards.length === 8) {
+                    setShowWin(true)
+                    setClearedCards([])
+                    console.log("You Win!")
+                }
+                return;
+            } else {
+                const newState = cards.map(card => {
+                    if (card._id === openCards.indexOne || card._id === index) {
+                        return { ...card, image: guitarGuy, clicked: false };
+                    }
+                    return card;
+                });
+                setOpenCards({});
+                setCards(newState)
+                console.log("Not a Match!")
+                // timeout.current = setTimeout(() => {
+                //     evaluate()
+                // }, 1500);
+            }
+        } else
+            setOpenCards({
+                ...openCards,
+                firstValue: value,
+                indexOne: index
+            })
     }
-
-    const evaluate = () => {
-        const {first, second} = openCards;
-        console.log(first)
-        if (first === second) {
-            console.log("It's a Match!")
-            setClearedCards((prev) => ({ ...prev, [cards[first].type]: true }));
-            setOpenCards({});
-            return;
-        } else {
-            console.log("Not a Match!")
-            // Flip cards after a 500ms duration
-            timeout.current = setTimeout(() => {
-                setOpenCards([]);
-            }, 500);
-        }
-    };
 
     const startGame = (cards) => {
         setCards(prevValue => [...cards].sort(() => Math.random() - 0.5))
         setShowButton(false)
+    }
+
+    const startGameAgain = (cards) => {
+        setCards(prevValue => [...cards].sort(() => Math.random() - 0.5))
+        const newState = cards.map(card => {
+            return { ...card, image: guitarGuy, clicked: false };
+        });
+        setCards(newState)
+        setShowWin(false)
     }
 
     return (
@@ -182,19 +159,29 @@ export const MernchingBand = (props) => {
             </nav>
             <div className="mernTable">
                 {showButton &&
-                <button
-                onClick={() => {startGame(cards)}}
-                className="startGameButton">Start Game
-                </button>
+                    <button
+                        onClick={() => { startGame(cards) }}
+                        className="startGameButton">Start Game
+                    </button>
+                }
+                {showWin &&
+                    <div className="showWinModal">
+                        <h1 className="youRock">You Rock!</h1>
+                        <button
+                            onClick={() => { startGameAgain(cards) }}
+                            className="playAgain"
+                        >Play Again
+                        </button>
+                    </div>
                 }
                 <div className="d-flex flex-wrap gap-5 justify-content-center">
                     {cards.map((card, i) => {
-                    // {cards.sort(() => Math.random() - 0.5).map((card, i) => {
+                        // {cards.sort(() => Math.random() - 0.5).map((card, i) => {
                         const { _id, song, name, image, audio, value } = card;
                         return (
                             <div key={i}>
                                 <img
-                                    className="cardImage"
+                                    className={cardCss.i}
                                     src={`${image}`}
                                     idtoflip={i}
                                     // onClick={() => play({ id: audio })}
