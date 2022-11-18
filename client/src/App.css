@@ -40,6 +40,14 @@
   max-width: 500px;
 }
 
+.comingSoon1 {
+  color: white;
+  position: fixed;
+  top: 200px;
+  left: 735px;
+  font-size: 60px;
+}
+
 .mernchBut {
   background-color: #D83D1D;
   box-shadow: 0px 4px 15px rgba(216, 61, 29, 0.5);
@@ -73,6 +81,16 @@
 .mernNav {
   background-color: #22282c;
   height: 100px;
+}
+
+.darker_bg {
+  background-color: #22282c;
+}
+
+.logoCss {
+  margin-left: 50px;
+  padding-top: 15px;
+  margin-bottom: 83px;
 }
 
 .mernTable {

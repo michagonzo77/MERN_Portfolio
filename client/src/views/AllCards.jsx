@@ -39,6 +39,7 @@ export const AllCards = (props) => {
     return (
         <div>
             <hr />
+            <img src=".\mernchingband.png"></img>
             <h3>These cards are looking for a good home.</h3>
             <Link to={"/mernchingband/new"}>Create New Card</Link>
             <div className="mx-auto text-center">

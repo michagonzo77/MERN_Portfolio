@@ -8,6 +8,7 @@ import spriteSound from "../static/spriteSound.mp3"
 import fullSong from "../static/full_song.mp3"
 // import guitarGuy from "./mernchingcard.png"
 import guitarGuy from "./mernchingcardsmall.png"
+import lightOff from "./mernchinglightoff.png"
 
 const fullCancion = new Audio(fullSong)
 export const MernchingBand = (props) => {
@@ -28,6 +29,9 @@ export const MernchingBand = (props) => {
         },
         interrupt: true
     })
+
+    const [logoCss, setLogoCss] = useState('logoCss')
+    const [logo, setLogo] = useState(lightOff)
 
     const [cardCss, setCardCss] = useState({
         0: 'cardImage',
@@ -146,6 +150,8 @@ export const MernchingBand = (props) => {
     }
 
     const startGame = (cards) => {
+        setLogoCss('mernNav')
+        setLogo(mernching)
         setCards(prevValue => [...cards].sort(() => Math.random() - 0.5))
         setShowButton(false)
     }
@@ -162,8 +168,11 @@ export const MernchingBand = (props) => {
 
     return (
         <div className="mernMain">
-            <nav className="mernNav">
-                <img src={mernching} />
+            {/* <nav className="logoCss">
+                <img src={lightOff} />
+            </nav> */}
+            <nav className={logoCss}>
+                <img src={logo} />
             </nav>
             <div className="mernTable">
                 {showButton &&
