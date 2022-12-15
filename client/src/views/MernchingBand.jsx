@@ -163,7 +163,7 @@ export const MernchingBand = (props) => {
 
     const startGame = (cards) => {
         setLogoCss('mernNav')
-        setLogo(mernching)
+        // setLogo(mernching)
         setCards(prevValue => [...cards].sort(() => Math.random() - 0.5))
         setShowButton(false)
         setShowBg(false)
@@ -182,7 +182,7 @@ export const MernchingBand = (props) => {
 
     return (
         <div className="mernMain">
-            <div className="navvy d-flex justify-content-end">
+            <div className="navvy d-flex justify-content-between align-items-center">
                 <nav className={logoCss}>
                     <img src={logo} />
                 </nav>

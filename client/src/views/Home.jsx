@@ -61,6 +61,7 @@ import biopic from "./biopic.jpg"
 import coffee from "./coffee.png"
 import githubLogo from "./github.png"
 import linkedinLogo from "./linkedin.png"
+import lightOff from "./mernchinglightoff.png"
 
 export const Home = (props) => {
     const [showBio, setShowBio] = useState(true)
@@ -68,10 +69,18 @@ export const Home = (props) => {
         setShowBio(false)
     }
 
+    const [logoCss, setLogoCss] = useState('logoCss')
+    const [logo, setLogo] = useState(lightOff)
+
     return (
         <div className="homeMain">
             <nav className="homeNav">
-                {/* <img className="homeLogo" src={michaelthedev} /> */}
+                <div className="navvy d-flex justify-content-between align-items-center">
+                    <nav className={logoCss}>
+                        <img src={logo} />
+                    </nav>
+                    <Link className="text-light homeBut" to={"/"}>HOME</Link>
+                </div>
             </nav>
             {showBio &&
                 <div className="bio">
@@ -94,12 +103,12 @@ export const Home = (props) => {
                             </div>
                             <div className="bioLeftBottom">
                                 <p className="aboutTitle">About</p>
-                                <p className="aboutMe">Software Developer with 5 years of experience in Marketing. I am passionate about building scalable applications in 2 full stacks (Python, MERN).<br></br>
-
-                                    I've always orbited toward computers and tech in general, starting at age 6 as a Windows 95 expert :). When my childhood friends and I started a band, even though I played guitar, I wanted to be the producer. Learning new programs, and troubleshooting issues that would arise, are things I'd find fun.<br></br>
-
-                                    My previous career in Marketing allowed me the opportunity to learn how to build genuine connections. It allowed me the opportunity to work in teams, even from afar. It allowed me the opportunities to follow and to lead, knowing the ins and outs of both aspects, all skills that are essential to software engineering as well.<br></br>
-
+                                <p className="aboutMe">Software Developer with 5 years of experience in Marketing. I am passionate about building scalable applications in 2 full stacks (Python, MERN).</p>
+                                <p className="aboutMe">
+                                    I've always orbited toward computers and tech in general, starting at age 6 as a Windows 95 expert :). When my childhood friends and I started a band, even though I played guitar, I wanted to be the producer. Learning new programs, and troubleshooting issues that would arise, are things I'd find fun.</p>
+                                <p className="aboutMe">
+                                    My previous career in Marketing allowed me the opportunity to learn how to build genuine connections. It allowed me the opportunity to work in teams, even from afar. It allowed me the opportunities to follow and to lead, knowing the ins and outs of both aspects, all skills that are essential to software engineering as well.</p>
+                                <p className="aboutMe">
                                     Once I started my own marketing agency and learned how to manage my team and grow our client base, it was the opportunity to solve real-life problems involving technology that struck a chord. I felt the same way I did when I turned on my Windows 95 computer for the first time. I self-taught myself WordPress, CSS, and SEO. With these tools, I self-taught myself how to improve a business's online presence and boost its bottom line by generating more leads. Through business development and the lack of cohesive sales tracking software, I came up with my current project. I'm developing a sales tool using Python & Flask to provide territory visibility for outside sales reps using Google Maps API.
                                 </p>
                                 <p className="skillsTitle">Skills</p>
@@ -108,18 +117,18 @@ export const Home = (props) => {
                                 </p>
                                 <p className="aboutTitle">Technical Skills</p>
                                 <p className="aboutMe">
-                                    Languages: Python, JavaScript(ES6, Node.JS), HTML5, CSS, SQL
-                                    Frameworks/Libraries: Flask, Jinja2, React, Express, React Native, Bootstrap, Mongoose
+                                    Languages: Python, JavaScript(ES6, Node.JS), C#, HTML5, CSS, SQL
+                                    Frameworks/Libraries: Flask, Jinja2, React, Express, React Native, Bootstrap, Mongoose, ASP.NET
                                     Databases: MySQL, MongoDB
                                     Development Methodologies: Agile (SCRUM)
                                     Tools: AJAX, REST API, JSON, AWS(EC2), MySQL Workbench, Git, Github
-                                    Currently Learning: C# | Socket IO
                                 </p>
                             </div>
                         </div>
                         <div className="bioRight">
                             <div className="playAGame">
-                                <h2 className="text-light">Want To Play a Game?</h2>
+                                <h2 className="text-light playAGameTitle">Want To Play a Game?</h2>
+                                <p className="text-light playAGameText">Are you a recruiter sitting at work looking through potential candidates portfolios and resumes? Feel free to relax here and play some games, no judgement. I graduate from my Coding Dojo bootcamp on the day before Christmas Eve 2022, so look back from time to time to see my games progress.</p>
                                 <button onClick={handleClick}>Flip To Games</button>
                             </div>
                         </div>

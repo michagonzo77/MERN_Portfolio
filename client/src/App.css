@@ -23,7 +23,7 @@
 }
 
 .bioFull {
-  max-width: 90%;
+  max-width: 65%;
   background: linear-gradient(120.39deg, rgba(241, 241, 240, 0.15) 14.67%, rgba(241, 241, 240, 0.05) 63.34%);
   background-color: #191919;
   box-sizing: border-box;
@@ -44,6 +44,15 @@
   text-align: left;
 }
 
+.bioLeftBottom{
+  padding: 3%;
+}
+
+.bioRight {
+  display: flex;
+  align-items: center;
+}
+
 .nameHeader {
   /* Michael The Dev */
   width: 724px;
@@ -59,21 +68,14 @@
 }
 
 .tagLine {
-
   width: 724px;
   height: 23px;
-
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
   line-height: 23px;
-
   color: #FFFFFF;
-
-
-  /* Inside auto layout */
-
   flex: none;
   order: 1;
   align-self: stretch;
@@ -92,8 +94,6 @@
   border-radius: 8px;
   border: 0px;
   font-weight: 600;
-  /* Inside auto layout */
-
   flex: none;
   order: 1;
   flex-grow: 0;
@@ -139,20 +139,9 @@ font-weight: 400;
 font-size: 30px;
 line-height: 33px;
 /* identical to box height */
-
-
 color: #F1F1F0;
-
-/* White */
-
 text-shadow: 0px 4px 5px rgba(12, 187, 72, 0.5);
 
-/* Inside auto layout */
-/* 
-flex: none;
-order: 0;
-align-self: stretch;
-flex-grow: 0; */
 }
 
 .playAGame {
@@ -163,8 +152,20 @@ flex-grow: 0; */
   backdrop-filter: blur(25px);
   /* Note: backdrop-filter has minimal browser support */
   border-radius: 16px;
+  min-height: 80%;
 }
 
+.playAGameTitle {
+  margin-top: 50%;
+  text-align: center;
+}
+
+.playAGameText{
+  max-width: 75%;
+  margin: 0 auto;
+  margin-top: 16%;
+  margin-bottom: 8%;
+}
 .gameLogo {
   max-width: 80%;
 }
@@ -243,9 +244,7 @@ flex-grow: 0; */
 }
 
 .mernNav {
-  /* background-color: #22282c; */
-  position: fixed;
-  left: 0;
+  margin-left: 2%;
 }
 
 .darker_bg {
@@ -253,12 +252,7 @@ flex-grow: 0; */
 }
 
 .logoCss {
-  position: fixed;
-  left: 49px;
-  top: 18px;
-  /* margin-left: 49px;
-  padding-top: 18px;
-  margin-bottom: 20px; */
+  margin-left: 2%;
 }
 
 .mernTable {
@@ -270,16 +264,9 @@ flex-grow: 0; */
   margin-top: 2%;
   margin-bottom: 2%;
   padding: 4%;
-
-  /* position: absolute; */
-  /* width: 1565px;
-  height: 717px;
-  left: 81px;
-  top: 114px; */
-
+  max-width: 65%;
   backdrop-filter: blur(25px);
   /* Note: backdrop-filter has minimal browser support */
-
   border-radius: 16px;
   border: 1px solid #F1F1F0;
 }
