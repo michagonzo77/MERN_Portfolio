@@ -25,8 +25,8 @@ function App() {
         </div>
       </nav> */}
       <Routes>
-        <Route path='/' element={<Navigate to='/home' replace />} />
-        <Route path='/home' element={<Home />} />
+        {/* <Route path='/' element={<Navigate to='/home' replace />} /> */}
+        <Route path='/' element={<Home />} />
         <Route path='/mernchingband' element={<MernchingBand />} />
         <Route path='/mernchingband/:id/edit' element={<EditCard />} />
         <Route path='/mernchingband/:id' element={<OneCard />} />
