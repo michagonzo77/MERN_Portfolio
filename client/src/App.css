@@ -8,16 +8,161 @@
 .homeNav {
   background-color: #22282c;
   height: 80px;
+  position: relative;
+  margin-bottom: 100px;
 }
 
 .homeLogo {
-  position: fixed;
+  position: relative;
   left: 49px;
-  top:18px;
+  top: 18px;
 }
 
 .bio {
   text-align: center;
+}
+
+.bioFull {
+  max-width: 90%;
+  background: linear-gradient(120.39deg, rgba(241, 241, 240, 0.15) 14.67%, rgba(241, 241, 240, 0.05) 63.34%);
+  background-color: #191919;
+  box-sizing: border-box;
+  margin: 0 auto;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  padding: 3%;
+  backdrop-filter: blur(25px);
+  border-radius: 16px;
+  border: 1px solid #F1F1F0;
+}
+
+.bioLeft {
+  width: 50%
+}
+
+.bioLeftTopRight {
+  text-align: left;
+}
+
+.nameHeader {
+  /* Michael The Dev */
+  width: 724px;
+  height: 76px;
+  font-family: 'Archivo Black';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 70px;
+  line-height: 76px;
+  text-transform: uppercase;
+  color: #F1F1F0;
+  text-shadow: 0px 4px 15px rgba(12, 187, 72, 0.6);
+}
+
+.tagLine {
+
+  width: 724px;
+  height: 23px;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+
+  color: #FFFFFF;
+
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.buyMeCoffee {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  gap: 8px;
+  background: #F1F1F0;
+  box-shadow: 0px 4px 15px rgba(241, 241, 240, 0.24);
+  border-radius: 8px;
+  border: 0px;
+  font-weight: 600;
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.socialLogo {
+  width: 40px;
+  height: 40px;
+}
+
+.aboutTitle {
+  /* About */
+  text-align: left;
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 33px;
+  /* identical to box height */
+  color: #F1F1F0;
+
+  /* White */
+  text-shadow: 0px 4px 5px rgba(12, 187, 72, 0.5);
+}
+
+.aboutMe {
+  text-align: left;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #FFFFFF;
+}
+
+.skillsTitle {
+  /* Strengths */
+text-align: left;
+
+font-family: 'Archivo';
+font-style: normal;
+font-weight: 400;
+font-size: 30px;
+line-height: 33px;
+/* identical to box height */
+
+
+color: #F1F1F0;
+
+/* White */
+
+text-shadow: 0px 4px 5px rgba(12, 187, 72, 0.5);
+
+/* Inside auto layout */
+/* 
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0; */
+}
+
+.playAGame {
+  padding: 5%;
+  box-sizing: border-box;
+  background: linear-gradient(120.39deg, rgba(241, 241, 240, 0.15) 14.67%, rgba(241, 241, 240, 0.05) 48.38%, rgba(241, 241, 240, 0.09) 63.34%);
+  box-shadow: 0px 0px 50px #22282C;
+  backdrop-filter: blur(25px);
+  /* Note: backdrop-filter has minimal browser support */
+  border-radius: 16px;
 }
 
 .gameLogo {
@@ -25,7 +170,7 @@
 }
 
 .homeTable {
-  max-width: 1800px;
+  max-width: 90%;
   background: linear-gradient(120.39deg, rgba(241, 241, 240, 0.15) 14.67%, rgba(241, 241, 240, 0.05) 63.34%);
   background-color: #191919;
   box-sizing: border-box;
@@ -87,12 +232,12 @@
 
 .mernMain {
   width: 100%;
-  min-height: 1475px;
+  /* min-height: 1475px; */
   background-color: #191919;
   padding-bottom: 5%;
 }
 
-.navvy{
+.navvy {
   background-color: #22282c;
   height: 80px;
 }
@@ -110,14 +255,14 @@
 .logoCss {
   position: fixed;
   left: 49px;
-  top:18px;
+  top: 18px;
   /* margin-left: 49px;
   padding-top: 18px;
   margin-bottom: 20px; */
 }
 
 .mernTable {
-  width: 1565px;
+  width: 90%;
   background: linear-gradient(120.39deg, rgba(241, 241, 240, 0.15) 14.67%, rgba(241, 241, 240, 0.05) 63.34%);
   background-color: #191919;
   box-sizing: border-box;
@@ -146,6 +291,7 @@
   transform-style: preserve-3d;
   transition: .4s ease-in-out;
 }
+
 .cardImage.picked {
   width: 50%;
   height: 50%;
