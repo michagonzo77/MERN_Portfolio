@@ -16,7 +16,7 @@ html {
 
 .homeNav {
   background-color: #22282c;
-  height: 80px;
+  height: 50px;
   position: relative;
   margin-bottom: 2%;
 }
@@ -265,7 +265,7 @@ html {
 
 .gameLogo {
   min-width: 50%;
-  max-width: 80%;
+  max-width: 65%;
 }
 
 .firstCol,
@@ -320,7 +320,7 @@ html {
 
 .navvy {
   background-color: #22282c;
-  height: 80px;
+  height: 50px;
 }
 
 .mernNav {
