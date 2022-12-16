@@ -192,6 +192,11 @@ export const Home = (props) => {
         setFlipCssCardInner('flipItCardInnerActive')
     }
 
+    const handleClickReturn = () => {
+        setFlipCssCard('flip-card')
+        setFlipCssCardInner('flip-card-inner')
+    }
+
     const [flipCssCard, setFlipCssCard] = useState('flip-card')
     const [flipCssCardInner, setFlipCssCardInner] = useState('flip-card-inner')
     const [logoCss, setLogoCss] = useState('logoCss')
@@ -260,7 +265,7 @@ export const Home = (props) => {
                                     <h2 className="text-light playAGameTitle">Want To Play a Game?</h2>
                                     <p className="text-light playAGameText">Are you a recruiter sitting at work looking through potential candidates portfolios and resumes?</p>
                                     <p className="text-light playAGameText">Feel free to relax here and play some games, no judgement. I graduate from my Coding Dojo bootcamp on the day before Christmas Eve 2022, so look back from time to time to see my games progress.</p>
-                                    <button onClick={handleClick}>Flip To Games</button>
+                                    <button class="flipButton" onClick={handleClick}><span class="flipButtonText">PLAY</span></button>
                                 </div>
                             </div>
                         </div>
@@ -289,6 +294,7 @@ export const Home = (props) => {
                                 <Link className="text-dark camBut" to={"/"}>COMING SOON</Link>
                             </div>
                         </div>
+                            <button class="flipButton" onClick={handleClickReturn}><span class="flipButtonText">BACK TO BIO</span></button>
                     </div>
                 </div>
             </div>
