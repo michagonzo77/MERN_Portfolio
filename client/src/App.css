@@ -427,9 +427,7 @@ html {
   text-decoration: none;
 }
 
-
 /* Flip CSS */
-
 
 .flipButton {
   width: 50%;
@@ -443,6 +441,7 @@ html {
   font-size: 20px;
   line-height: 22px;
   color: #22282C;
+  margin-bottom: 10%;
 }
 
 .flipButtonText {
@@ -457,6 +456,12 @@ html {
 .flip-card {
   background-color: transparent;
   perspective: 1000px;
+}
+
+@media (max-width: 768px) {
+  .flip-card {
+    min-height: 1650px;
+  }
 }
 
 .flip-card-inner {
