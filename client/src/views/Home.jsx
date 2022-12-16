@@ -193,7 +193,7 @@ export const Home = (props) => {
         }, 100)
         setFlipCssCard('flipItCardActive')
         setFlipCssCardInner('flipItCardInnerActive')
-        window.scrollTo(0, 0)
+        window.scrollTo(0, 0);
     }
 
     const handleClickReturn = () => {
@@ -282,6 +282,7 @@ export const Home = (props) => {
                             </div>
                         </div>
                     }
+                    {!showBio &&
                     <div className="flip-card-back">
                         <div className="homeTable">
                             <div className="firstCol text-center">
@@ -308,6 +309,7 @@ export const Home = (props) => {
                         </div>
                         <button class="flipButton" onClick={handleClickReturn}>BACK TO BIO</button>
                     </div>
+                    }
                 </div>
             </div>
         </div>
