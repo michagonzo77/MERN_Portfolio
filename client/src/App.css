@@ -522,11 +522,16 @@ html {
   justify-content: space-between;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 768px) {
   .homeTable {
     display: block;
   }
   .homeTable h4 {
     margin-top: 8%;
   }
+  .firstCol,
+  .secondCol,
+  .thirdCol {
+    margin: 0 auto;
+}
 }
