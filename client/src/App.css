@@ -261,6 +261,7 @@ html {
 }
 
 .gameLogo {
+  min-width: 50%;
   max-width: 80%;
 }
 
@@ -515,7 +516,6 @@ html {
   background-color: #191919;
   box-sizing: border-box;
   margin: 0 auto;
-  margin-top: 2%;
   margin-bottom: 2%;
   padding: 3%;
   backdrop-filter: blur(25px);
@@ -526,7 +526,7 @@ html {
   justify-content: space-between;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
   .homeTable {
     display: block;
   }

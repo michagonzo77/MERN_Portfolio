@@ -184,9 +184,7 @@ import lightOff from "./mernchinglightoff.png"
 
 export const Home = (props) => {
     const [showBio, setShowBio] = useState(true)
-    // const handleClick = () => {
-    //     setShowBio(false)
-    // }
+
     const handleClick = () => {
         setTimeout(() => {
             setShowBio(false)
@@ -285,21 +283,21 @@ export const Home = (props) => {
                     {!showBio &&
                     <div className="flip-card-back">
                         <div className="homeTable">
-                            <div className="firstCol text-center">
+                            <div className="firstCol text-center col-xxl-4 col-xl-4 col-lg-4 col-sm-12 col-xs-12">
                                 <h4 className="text-light">MERNCHING BAND</h4>
                                 <img className="gameLogo" src={mernchingcard} />
                                 <p className="text-light">Players: 1</p>
                                 <p className="text-light">DESCRIPTION OF GAME: Memory matching game using music. Create songs with the power of your memory.</p>
                                 <a className="text-light mernchBut" href="/mernchingband">START</a>
                             </div>
-                            <div className="secondCol text-center">
+                            <div className="secondCol text-center col-xxl-4 col-xl-4 col-lg-4 col-sm-12 col-xs-12">
                                 <h4 className="text-light">GOOGLE GUESS</h4>
                                 <img className="gameLogo" src={googlecard} />
                                 <p className="text-light">Players: 1-2</p>
                                 <p className="text-light">DESCRIPTION OF GAME: Guess how long it takes to drive somewhere. Beat your friends and show them you know how to drive.</p>
                                 <Link className="text-light googleBut" to={"/"}>COMING SOON</Link>
                             </div>
-                            <div className="thirdCol text-center">
+                            <div className="thirdCol text-center col-xxl-4 col-xl-4 col-lg-4 col-sm-12 col-xs-12">
                                 <h4 className="text-light">CAM SCAVENGE</h4>
                                 <img className="gameLogo" src={camscavenge} />
                                 <p className="text-light">Players: 1</p>
