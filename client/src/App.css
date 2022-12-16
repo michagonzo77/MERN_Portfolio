@@ -71,14 +71,16 @@ html {
 
 .bioLeftTop {
   display: flex;
-  justify-content: start;
-  align-items: center;
 }
 
 @media (max-width: 425px) {
   .bioLeftTop {
     display: block;
   }
+}
+
+.bioLeftTopLeft {
+  margin-right: 2%;
 }
 
 .bioLeftTopRight {
@@ -206,7 +208,7 @@ html {
 }
 
 .playAGame {
-  padding: 5%;
+  padding: 4%;
   background: linear-gradient(120.39deg, rgba(241, 241, 240, 0.15) 14.67%, rgba(241, 241, 240, 0.05) 48.38%, rgba(241, 241, 240, 0.09) 63.34%);
   box-shadow: 0px 0px 50px #22282C;
   backdrop-filter: blur(25px);
@@ -229,7 +231,7 @@ html {
 }
 
 .playAGameTitle {
-  margin-top: 10%;
+  margin-top: 2%;
   text-align: center;
 }
 
@@ -242,8 +244,8 @@ html {
 .playAGameText {
   max-width: 75%;
   margin: 0 auto;
-  margin-top: 16%;
-  margin-bottom: 8%;
+  margin-top: 8%;
+  margin-bottom: 4%;
   text-align: left;
   font-family: 'Roboto', sans-serif;
   font-style: normal;
@@ -442,7 +444,8 @@ html {
   font-size: 20px;
   line-height: 22px;
   color: #22282C;
-  margin-bottom: 10%;
+  margin-top: 8%;
+  margin-bottom: 4%;
 }
 
 .flipButtonText {
