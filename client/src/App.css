@@ -23,15 +23,27 @@
 }
 
 .bioFull {
-  max-width: 65%;
+  max-width: 80%;
   background: linear-gradient(120.39deg, rgba(241, 241, 240, 0.15) 14.67%, rgba(241, 241, 240, 0.05) 63.34%);
   background-color: #191919;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   margin: 0 auto;
   padding: 2%;
   backdrop-filter: blur(25px);
   border-radius: 16px;
   border: 1px solid #F1F1F0;
+  justify-content: space-between;
+}
+
+@media (max-width: 1024px) {
+  .bioFull {
+    max-width: 100%;
+    /* box-sizing: content-box; */
+    padding: 2%;
+    border-radius: 16px;
+    border: 1px solid #F1F1F0;
+    justify-content: center;
+  }
 }
 
 /* .bioLeft {
@@ -44,6 +56,18 @@
 
 .bioLeftBottom{
   padding: 3%;
+}
+
+.bioBottom {
+  display: flex;
+}
+
+@media (max-width: 425px) {
+  .bioBottom {
+    display: block;
+    max-width: 50%;
+    margin: 0 auto;
+  }
 }
 
 .bioRight {
@@ -156,7 +180,6 @@
 .skillsTitle {
   /* Strengths */
 text-align: left;
-
 font-family: 'Archivo', sans-serif;
 font-style: normal;
 font-weight: 400;
@@ -165,18 +188,28 @@ line-height: 33px;
 /* identical to box height */
 color: #F1F1F0;
 text-shadow: 0px 4px 5px rgba(12, 187, 72, 0.5);
-
 }
 
 .playAGame {
   padding: 5%;
-  box-sizing: border-box;
   background: linear-gradient(120.39deg, rgba(241, 241, 240, 0.15) 14.67%, rgba(241, 241, 240, 0.05) 48.38%, rgba(241, 241, 240, 0.09) 63.34%);
   box-shadow: 0px 0px 50px #22282C;
   backdrop-filter: blur(25px);
   /* Note: backdrop-filter has minimal browser support */
   border-radius: 16px;
   min-height: 80%;
+}
+
+@media (max-width: 768px) {
+  .playAGame {
+    padding: 0%;
+    background: linear-gradient(120.39deg, rgba(241, 241, 240, 0.15) 14.67%, rgba(241, 241, 240, 0.05) 48.38%, rgba(241, 241, 240, 0.09) 63.34%);
+    box-shadow: 0px 0px 50px #22282C;
+    backdrop-filter: blur(25px);
+    /* Note: backdrop-filter has minimal browser support */
+    border-radius: 16px;
+    min-width: 80%;
+  }
 }
 
 .playAGameTitle {
@@ -368,7 +401,7 @@ text-shadow: 0px 4px 5px rgba(12, 187, 72, 0.5);
 
 
 .flipButton {
-  width: 240px;
+  width: 80%;
   height: 40px;
   background: #FFFFFF;
   box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.5);
