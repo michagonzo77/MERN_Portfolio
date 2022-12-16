@@ -41,24 +41,48 @@
   }
 }
 
+.bioPic {
+  width: 75%;
+}
+
+@media (max-width: 960px) {
+  .bioPic {
+    width: 80%;
+  }
+}
+
+@media (max-width: 860px) {
+  .bioPic {
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .bioPic {
+    width: 100%;
+  }
+}
+
+.bioLeftTop {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .bioLeftTop {
+    justify-content: center;
+  }
+}
+
 .bioLeftTopRight {
   text-align: left;
 }
 
-.bioLeftBottom{
+.bioLeftBottom {
   padding: 3%;
 }
 
 .bioBottom {
   display: flex;
-}
-
-@media (max-width: 425px) {
-  .bioBottom {
-    display: block;
-    max-width: 50%;
-    margin: 0 auto;
-  }
 }
 
 .bioRight {
@@ -68,8 +92,6 @@
 
 .nameHeader {
   /* Michael The Dev */
-  width: 724px;
-  height: 76px;
   font-family: 'Archivo Black', sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -80,44 +102,19 @@
   text-shadow: 0px 4px 15px rgba(12, 187, 72, 0.6);
 }
 
-/* @media (max-width: 1024px) {
-  .nameHeader{
-    font-size: 40px;
-  }
-}
-
-@media (max-width: 768px) {
-  .nameHeader{
-    font-size: 36px;
-  }
-} */
-
 .tagLine {
-  /* max-width: 724px;
-  max-height: 23px; */
   font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 400;
-  /* font-size: 20px; */
   line-height: 23px;
   color: #FFFFFF;
-  /* flex: none;
-  order: 1;
-  align-self: stretch; */
-  /* flex-grow: 0; */
 }
 
-/* @media (min-width: 1440px) {
-  .tagLine{
-    font-size: 20px;
+@media (max-width: 806px) {
+  .tagLine {
+    max-width: 60%;
   }
-} */
-
-/* @media (max-width: 768px) {
-  .tagLine{
-    font-size: 16px;
-  }
-} */
+}
 
 .buyMeCoffee {
   display: flex;
@@ -170,15 +167,15 @@
 
 .skillsTitle {
   /* Strengths */
-text-align: left;
-font-family: 'Archivo', sans-serif;
-font-style: normal;
-font-weight: 400;
-font-size: 30px;
-line-height: 33px;
-/* identical to box height */
-color: #F1F1F0;
-text-shadow: 0px 4px 5px rgba(12, 187, 72, 0.5);
+  text-align: left;
+  font-family: 'Archivo', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 33px;
+  /* identical to box height */
+  color: #F1F1F0;
+  text-shadow: 0px 4px 5px rgba(12, 187, 72, 0.5);
 }
 
 .playAGame {
@@ -208,7 +205,7 @@ text-shadow: 0px 4px 5px rgba(12, 187, 72, 0.5);
   text-align: center;
 }
 
-.playAGameText{
+.playAGameText {
   max-width: 75%;
   margin: 0 auto;
   margin-top: 16%;
@@ -416,8 +413,6 @@ text-shadow: 0px 4px 5px rgba(12, 187, 72, 0.5);
 
 .flip-card {
   background-color: transparent;
-  /* width: 300px;
-  height: 300px; */
   perspective: 1000px;
 }
 
@@ -428,7 +423,7 @@ text-shadow: 0px 4px 5px rgba(12, 187, 72, 0.5);
   text-align: center;
   transition: transform 0.6s;
   transform-style: preserve-3d;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 /* .flip-card:hover .flip-card-inner {
@@ -450,11 +445,12 @@ text-shadow: 0px 4px 5px rgba(12, 187, 72, 0.5);
   text-align: center;
   transition: transform 0.6s;
   transform-style: preserve-3d;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transform: rotateY(180deg);
 }
 
-.flip-card-front, .flip-card-back {
+.flip-card-front,
+.flip-card-back {
   position: absolute;
   width: 100%;
   height: 100%;

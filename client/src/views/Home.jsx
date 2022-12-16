@@ -225,9 +225,9 @@ export const Home = (props) => {
                             {/* <img src={bio}></img> */}
                             <div className="bioFull d-flex">
                                 <div className="bioLeft">
-                                    <div className="bioLeftTop d-flex gap-3 align-items-center">
+                                    <div className="bioLeftTop gap-3 align-items-center">
                                         <div className="bioLeftTopLeft col-3">
-                                            <img className="w-75 border border-solid" src={biopic}></img>
+                                            <img className="bioPic border border-solid" src={biopic}></img>
                                         </div>
                                         <div className="bioLeftTopRight text-light">
                                             <h1 className="nameHeader">MICHAEL THE DEV</h1>
