@@ -283,7 +283,7 @@ export const Home = (props) => {
                         </div>
                     }
                     <div className="flip-card-back">
-                        <div className="homeTable d-flex justify-content-between">
+                        <div className="homeTable">
                             <div className="firstCol text-center">
                                 <h4 className="text-light">MERNCHING BAND</h4>
                                 <img className="gameLogo" src={mernchingcard} />

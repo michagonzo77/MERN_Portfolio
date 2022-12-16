@@ -129,7 +129,9 @@ export const MernchingBand = (props) => {
                     value
                 ])
                 if (clearedCards.length === 8) {
-                    fullCancion.play()
+                    setTimeout(() => {
+                        fullCancion.play()
+                    }, 2000)
                     setShowWin(true)
                     setShowBg(true)
                     setClearedCards([])
