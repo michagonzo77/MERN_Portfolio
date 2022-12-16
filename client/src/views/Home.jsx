@@ -190,7 +190,7 @@ export const Home = (props) => {
     const handleClick = () => {
         setTimeout(() => {
             setShowBio(false)
-        }, 600)
+        }, 100)
         setFlipCssCard('flipItCardActive')
         setFlipCssCardInner('flipItCardInnerActive')
     }
@@ -198,7 +198,7 @@ export const Home = (props) => {
     const handleClickReturn = () => {
         setTimeout(() => {
             setShowBio(true)
-        }, 600)
+        }, 100)
         setFlipCssCard('flip-card')
         setFlipCssCardInner('flip-card-inner')
     }
@@ -278,7 +278,7 @@ export const Home = (props) => {
                             </div>
                         </div>
                     }
-                    {!showBio &&
+                    {/* {!showBio && */}
                         <div className="flip-card-back">
                             <div className="homeTable d-flex justify-content-between">
                                 <div className="firstCol text-center">
@@ -305,7 +305,7 @@ export const Home = (props) => {
                             </div>
                             <button class="flipButton" onClick={handleClickReturn}>BACK TO BIO</button>
                         </div>
-                    }
+                    {/* } */}
                 </div>
             </div>
         </div>
