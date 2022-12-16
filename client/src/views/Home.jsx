@@ -193,6 +193,7 @@ export const Home = (props) => {
         }, 100)
         setFlipCssCard('flipItCardActive')
         setFlipCssCardInner('flipItCardInnerActive')
+        window.scrollTo(0, 0)
     }
 
     const handleClickReturn = () => {
@@ -201,6 +202,7 @@ export const Home = (props) => {
         }, 100)
         setFlipCssCard('flip-card')
         setFlipCssCardInner('flip-card-inner')
+        window.scrollTo(0, 0)
     }
 
     const [flipCssCard, setFlipCssCard] = useState('flip-card')
@@ -225,11 +227,11 @@ export const Home = (props) => {
                             {/* <img src={bio}></img> */}
                             <div className="bioFull">
                                 <div className="bioLeft">
-                                    <div className="bioLeftTop gap-3 align-items-center">
-                                        <div className="bioLeftTopLeft col-3">
-                                            <img className="bioPic border border-solid" src={biopic}></img>
+                                    <div className="bioLeftTop col-12">
+                                        <div className="bioLeftTopLeft col-4 col-xs-10">
+                                            <img className="bioPic border border-solid col-11" src={biopic}></img>
                                         </div>
-                                        <div className="bioLeftTopRight text-light">
+                                        <div className="bioLeftTopRight text-light col-8 col-xs-2">
                                             <h1 className="nameHeader">MICHAEL THE DEV</h1>
                                             <p className="tagLine">Full Stack Developer & Software Engineer with a Background in Marketing & Sales</p>
                                             <div className="bioLeftTopRightBot d-flex gap-2">

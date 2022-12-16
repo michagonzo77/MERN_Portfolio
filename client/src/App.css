@@ -45,22 +45,11 @@ html {
   justify-content: space-between;
 }
 
-/* @media (max-width: 1024px) {
-  .bioFull {
-    max-width: 80%;
-    justify-content: center;
-  }
-}
-
-@media (max-width: 768px) {
-  .bioFull {
-    justify-content: center;
-  }
-} */
-
 
 .bioPic {
   width: 75%;
+  max-width: 325px;
+  min-width: 120px;
 }
 
 @media (max-width: 960px) {
@@ -83,11 +72,13 @@ html {
 
 .bioLeftTop {
   display: flex;
+  justify-content: start;
+  align-items: center;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 425) {
   .bioLeftTop {
-    justify-content: center;
+    display: block;
   }
 }
 
@@ -103,7 +94,7 @@ html {
   display: flex;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 990px) {
   .bioBottom {
     display: block;
   }
@@ -126,8 +117,8 @@ html {
   font-family: 'Archivo Black', sans-serif;
   font-style: normal;
   font-weight: 400;
-  /* font-size: 70px; */
   line-height: 76px;
+  font-size: 4vw;
   text-transform: uppercase;
   color: #F1F1F0;
   text-shadow: 0px 4px 15px rgba(12, 187, 72, 0.6);
@@ -141,11 +132,6 @@ html {
   color: #FFFFFF;
 }
 
-@media (max-width: 806px) {
-  .tagLine {
-    max-width: 60%;
-  }
-}
 
 .buyMeCoffee {
   display: flex;
@@ -160,10 +146,21 @@ html {
   border: 0px;
   font-family: 'Archivo Black', sans-serif;
   font-weight: 600;
-  flex: none;
-  order: 1;
-  flex-grow: 0;
   height: 40px;
+}
+
+@media (max-width: 630px) {
+  .buyMeCoffee {
+    font-size: 14px;
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 475px) {
+  .buyMeCoffee {
+    font-size: 10px;
+    max-width: 90%;
+  }
 }
 
 .socialLogo {
@@ -221,8 +218,6 @@ html {
 
 @media (max-width: 1025px) {
   .playAGame {
-    min-height: 10%;
-    border-radius: 16px;
     padding: 1%;
   }
 }
@@ -230,17 +225,12 @@ html {
 @media (max-width: 768px) {
   .playAGame {
     padding: 0%;
-    background: linear-gradient(120.39deg, rgba(241, 241, 240, 0.15) 14.67%, rgba(241, 241, 240, 0.05) 48.38%, rgba(241, 241, 240, 0.09) 63.34%);
-    box-shadow: 0px 0px 50px #22282C;
-    backdrop-filter: blur(25px);
-    /* Note: backdrop-filter has minimal browser support */
-    border-radius: 16px;
     width: 50%;
   }
 }
 
 .playAGameTitle {
-  margin-top: 30%;
+  margin-top: 10%;
   text-align: center;
 }
 
