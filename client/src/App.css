@@ -1,9 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: #191919;
+}
+
 .homeMain {
   width: 100%;
   background-color: #191919;
-  padding-bottom: 5%;
-  min-height: 1475px;
+  margin-bottom: 5%;
 }
+
 
 .homeNav {
   background-color: #22282c;
@@ -26,20 +35,29 @@
   max-width: 90%;
   background: linear-gradient(120.39deg, rgba(241, 241, 240, 0.15) 14.67%, rgba(241, 241, 240, 0.05) 63.34%);
   background-color: #191919;
-  /* box-sizing: border-box; */
   margin: 0 auto;
   padding: 2%;
+  margin-bottom: 5%;
   backdrop-filter: blur(25px);
   border-radius: 16px;
   border: 1px solid #F1F1F0;
+  display: flex;
   justify-content: space-between;
 }
 
-@media (max-width: 1024px) {
+/* @media (max-width: 1024px) {
   .bioFull {
+    max-width: 80%;
     justify-content: center;
   }
 }
+
+@media (max-width: 768px) {
+  .bioFull {
+    justify-content: center;
+  }
+} */
+
 
 .bioPic {
   width: 75%;
@@ -85,9 +103,22 @@
   display: flex;
 }
 
+@media (max-width: 1024px) {
+  .bioBottom {
+    display: block;
+  }
+}
+
 .bioRight {
   display: flex;
   align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .bioRight {
+    margin: 0 auto;
+    justify-content: center;
+  }
 }
 
 .nameHeader {
@@ -188,6 +219,14 @@
   min-height: 80%;
 }
 
+@media (max-width: 1025px) {
+  .playAGame {
+    min-height: 10%;
+    border-radius: 16px;
+    padding: 1%;
+  }
+}
+
 @media (max-width: 768px) {
   .playAGame {
     padding: 0%;
@@ -196,13 +235,19 @@
     backdrop-filter: blur(25px);
     /* Note: backdrop-filter has minimal browser support */
     border-radius: 16px;
-    min-width: 80%;
+    width: 50%;
   }
 }
 
 .playAGameTitle {
   margin-top: 30%;
   text-align: center;
+}
+
+@media (max-width: 1024px) {
+  .playAGameTitle {
+    margin-top: 5%;
+  }
 }
 
 .playAGameText {
@@ -217,6 +262,13 @@
   font-size: 18px;
   line-height: 30px;
   color: #FFFFFF;
+}
+
+@media (max-width: 1024px) {
+  .playAGameText {
+    margin-top: 5%;
+    margin-bottom: 2%;
+  }
 }
 
 .gameLogo {
@@ -426,14 +478,8 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-/* .flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-} */
-
 .flipItCardActive {
   background-color: transparent;
-  /* width: 300px;
-  height: 300px; */
   perspective: 1000px;
   /* transform: rotateY(180deg); */
 }
@@ -476,11 +522,6 @@
   margin-top: 2%;
   margin-bottom: 2%;
   padding: 3%;
-  /* position: absolute; */
-  /* width: 1565px;
-  height: 717px;
-  left: 81px;
-  top: 114px; */
   backdrop-filter: blur(25px);
   /* Note: backdrop-filter has minimal browser support */
   border-radius: 16px;

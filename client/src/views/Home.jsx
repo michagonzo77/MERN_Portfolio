@@ -223,7 +223,7 @@ export const Home = (props) => {
                     {showBio &&
                         <div className="bio flip-card-front">
                             {/* <img src={bio}></img> */}
-                            <div className="bioFull d-flex">
+                            <div className="bioFull">
                                 <div className="bioLeft">
                                     <div className="bioLeftTop gap-3 align-items-center">
                                         <div className="bioLeftTopLeft col-3">
@@ -235,7 +235,7 @@ export const Home = (props) => {
                                             <div className="bioLeftTopRightBot d-flex gap-2">
                                                 <a href="https://github.com/michagonzo77"><img className="socialLogo" src={githubLogo}></img></a>
                                                 <a href="https://www.linkedin.com/in/michagonzo/"><img className="socialLogo" src={linkedinLogo}></img></a>
-                                                <a class="text-decoration-none" href="https://venmo.com/?txn=pay&audience=friends&recipients=michagonzo77&amount=5.00&note=Coffee">
+                                                <a class="text-decoration-none" href="https://cash.app/$lunatuco77">
                                                     <button className="buyMeCoffee">
                                                         <img src={coffee}></img>BUY ME A COFFEE
                                                     </button>
@@ -244,7 +244,7 @@ export const Home = (props) => {
                                         </div>
                                     </div>
                                     <div className="bioBottom">
-                                        <div className="bioLeftBottom">
+                                        <div className="bioLeftBottom col-12 col-lg-8">
                                             <p className="aboutTitle">About</p>
                                             <p className="aboutMe">Software Developer with 5 years of experience in Marketing. I am passionate about building scalable applications in 2 full stacks (Python, MERN).</p>
                                             <p className="aboutMe">
@@ -267,8 +267,8 @@ export const Home = (props) => {
                                                 Tools: AJAX, REST API, JSON, AWS(EC2), MySQL Workbench, Git, Github
                                             </p>
                                         </div>
-                                        <div className="bioRight">
-                                            <div className="playAGame">
+                                        <div className="bioRight col-12 col-lg-4">
+                                            <div className="playAGame col-12">
                                                 <h2 className="text-light playAGameTitle">Want To Play a Game?</h2>
                                                 <p className="text-light playAGameText">Are you a recruiter sitting at work looking through potential candidates portfolios and resumes?</p>
                                                 <p className="text-light playAGameText">Feel free to relax here and play some games, no judgement. I graduate from my Coding Dojo bootcamp on the day before Christmas Eve 2022, so look back from time to time to see my games progress.</p>
@@ -280,7 +280,6 @@ export const Home = (props) => {
                             </div>
                         </div>
                     }
-                    {/* {!showBio && */}
                     <div className="flip-card-back">
                         <div className="homeTable d-flex justify-content-between">
                             <div className="firstCol text-center">
@@ -307,7 +306,6 @@ export const Home = (props) => {
                         </div>
                         <button class="flipButton" onClick={handleClickReturn}>BACK TO BIO</button>
                     </div>
-                    {/* } */}
                 </div>
             </div>
         </div>
