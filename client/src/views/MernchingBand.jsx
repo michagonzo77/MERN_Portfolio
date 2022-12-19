@@ -19,8 +19,7 @@ export const MernchingBand = (props) => {
     const [showWin, setShowWin] = useState(false)
     const [openCards, setOpenCards] = useState({})
     const timeout = useRef(null);
-    const [showBio, setShowBio] = useState(true)
-    // const [cardCss, setCardCss] = useState('cardImage')
+
     const [play, { stop }] = useSound(spriteSound, {
         sprite: {
             bass: [0, 2100],
@@ -64,9 +63,7 @@ export const MernchingBand = (props) => {
 
     // Runs after the handleClick, and manages changing the click status and the graphic on the card.
     const ifClicked = (idToFlip, index) => {
-        // setCardCss({...cardCss, idToFlip: 'cardImage2'})
         if (cards[idToFlip].clicked === true) {
-            // cardCss[idToFlip] = 'cardImage'
             const newState = cards.map(card => {
                 if (card._id === index) {
                     return { ...card, image: cardz, clicked: false };
@@ -76,7 +73,6 @@ export const MernchingBand = (props) => {
             setCards(newState)
         }
         if (cards[idToFlip].clicked === false) {
-            // cardCss[idToFlip] = 'cardImage2'
             const newState = cards.map(card => {
                 if (card._id === index) {
                     return { ...card, image: cardz, clicked: true };
@@ -84,15 +80,11 @@ export const MernchingBand = (props) => {
                 return card;
             });
             setCards(newState)
-            // timeout.current = setTimeout(() => {
-            //     setCards(newState);
-            // }, 500);
         }
     }
 
     // Plays the audio and updates state to match new clicked status.
     const handleClick = (audio, idToFlip, index, value) => {
-        console.table(clearedCards)
         cardCss[idToFlip] = 'cardImage2'
         play({ id: audio })
         if (cards[idToFlip].clicked === false) {
@@ -114,7 +106,6 @@ export const MernchingBand = (props) => {
             setCards(newState)
         }
         ifClicked(idToFlip, index)
-        console.table(openCards)
         if ("firstValue" in openCards) {
             setClickDisabled(true)
             if (openCards.firstValue === value) {
@@ -135,7 +126,6 @@ export const MernchingBand = (props) => {
                     setShowWin(true)
                     setShowBg(true)
                     setClearedCards([])
-                    console.log("You Win!")
                 }
                 return;
             } else {
@@ -151,9 +141,6 @@ export const MernchingBand = (props) => {
                     setClickDisabled(false)
                     console.log("Not a Match!")
                 }, 1500);
-                // timeout.current = setTimeout(() => {
-                //     evaluate()
-                // }, 1500);
             }
         } else
             setOpenCards({
@@ -173,8 +160,12 @@ export const MernchingBand = (props) => {
 
     const startGameAgain = (cards) => {
         fullCancion.pause()
+        // setCards(prevValue => [...cards].sort(() => Math.random() - 0.5))
+        // const newState = cards.map(card => {
+        //     return { ...card, image: guitarGuy, clicked: false };
+        // });
         setCards(prevValue => [...cards].sort(() => Math.random() - 0.5))
-        const newState = cards.map(card => {
+        const newState = cards.sort(() => Math.random() - 0.5).map((card, i) => {
             return { ...card, image: guitarGuy, clicked: false };
         });
         setCards(newState)
@@ -220,8 +211,6 @@ export const MernchingBand = (props) => {
                                     className={cardCss.i}
                                     src={`${image}`}
                                     idtoflip={i}
-                                    // onClick={() => play({ id: audio })}
-                                    // onClick={() => { handleClick(audio, i, _id, value) }}
                                     onClick={() => clickDisabled ? () => { } : handleClick(audio, i, _id, value)}
                                     name={name}
                                     value={value}
