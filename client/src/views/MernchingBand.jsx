@@ -96,15 +96,15 @@ export const MernchingBand = (props) => {
             });
             setCards(newState)
         }
-        if (cards[idToFlip].clicked === true) {
-            const newState = cards.map(card => {
-                if (card._id === index) {
-                    return { ...card, clicked: false };
-                }
-                return card;
-            });
-            setCards(newState)
-        }
+        // if (cards[idToFlip].clicked === true) {
+        //     const newState = cards.map(card => {
+        //         if (card._id === index) {
+        //             return { ...card, clicked: false };
+        //         }
+        //         return card;
+        //     });
+        //     setCards(newState)
+        // }
         ifClicked(idToFlip, index)
         if ("firstValue" in openCards) {
             setClickDisabled(true)
